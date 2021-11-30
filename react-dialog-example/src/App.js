@@ -1,10 +1,16 @@
-import React from "react";
-import Header from "./components/Header";
+import React, { useEffect } from "react";
+
 
 function App() {
+
+  useEffect(() => {
+    document.title = 'Hello world';
+  }, [])
+
+
   return (
     <div className="container">
-      <Header />
+      useEffect
     </div>
   );
 }
