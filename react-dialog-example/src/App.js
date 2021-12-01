@@ -1,33 +1,59 @@
-import React, { useEffect, useState } from "react";
+import React, { useReducer } from "react";
 
 
-const App = (props) => {
+const App = () => {
 
-const [isReversed, reverse] = useState(null);
-const [color, changeColor] = useState(0);
-const [renderCount, setRenderCount] = useState(1);
+  const initialState = {
+    name: 'Vital',
+    age: 26,
+    town: 'NN'
+  }
 
-const colors = ["#001f3f", "#39cccc", "#39c5cc", "#d9cccc"];
-const styles = {color: colors[color]}
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'change-age':
+        return {
+          ...state,
+          age: action.payload
+        }
+      case 'change-name':
+        return {
+          ...state,
+          name: action.payload
+        }
+      case 'change-town':
+        return {
+          ...state,
+          town: action.payload
+        }
+      default: 
+        throw new Error('Unknown acion');  
+    }
+  }
 
+const [state, dispatch] = useReducer(reducer, initialState)
 
-const onClickHandle = (e) => {
-  reverse(isReversed => !isReversed);
-  changeColor(i => i + 1)
+const onChangeName = () => {
+  dispatch({type: 'change-name', payload: 'Alex'});
 }
 
-useEffect(() => {
-    if (isReversed !== null) {
-      setRenderCount(count => count + 1)
-    }
-}, [isReversed])
+const onChangeAge = () => {
+  dispatch({type: 'change-age', payload: 27});
+}
+const onChangeTown = () => {
+  dispatch({type: 'change-town', payload: 'Kazan'})
+}
+
+
 
   return (
       <div>
-        <p onClick={onClickHandle} style={styles}>
-          {isReversed ? props.text.split('').reverse().join('') : props.text}
-        </p>
-        Render {renderCount} раз
+        <p>{state.name}</p>
+        <button onClick={onChangeName}>Change name</button>
+        <p>{state.age}</p>
+        <button onClick={onChangeAge}>Change age</button>
+        <p>{state.town}</p>
+        <button onClick={onChangeTown}>Change Town</button>
       </div>
   );
 }

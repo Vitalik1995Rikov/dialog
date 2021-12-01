@@ -7,8 +7,7 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App text="Строка 1"/>
-    <App text="Строка 2"/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
