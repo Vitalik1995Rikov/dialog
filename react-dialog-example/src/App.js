@@ -1,17 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 
 
-function App() {
+const App = (props) => {
 
-  useEffect(() => {
-    document.title = 'Hello world';
-  }, [])
+const [isReversed, reverse] = useState(null);
 
+const onClickHandle = (e) => {
+  reverse(isReversed => !isReversed);
+}
 
   return (
-    <div className="container">
-      useEffect
-    </div>
+    <p onClick={onClickHandle}>
+      {isReversed ? props.text.split('').reverse().join('') : props.text}
+    </p>
   );
 }
 
