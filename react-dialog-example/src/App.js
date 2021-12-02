@@ -1,23 +1,20 @@
-import React, { useRef } from "react";
+import React from "react";
+import { Routes, Route} from 'react-router-dom';
 
+import About from "./About";
+import Contact from "./Contact";
+import AllContacts from "./AllContacts";
+import Home from "./Home";
 
-const App = () => {
-
-  const text = useRef(null);
-
-  const handleClick = () => {
-    text.current.value ='Learn React';
-  }
-  
-  return (
-      <div>
-        <button onClick={handleClick}>Add text</button>
-        <label>
-          Text will add after click button
-        </label>
-        <textarea ref={text}></textarea>
-      </div>
-  );
-}
+const App = () => (
+  <main>
+    <Routes>
+      <Route path="/about" element={<About />}></Route>
+      <Route path="/contact/:id" element={<Contact />}></Route>
+      <Route path="/contact" element={<AllContacts />}></Route>
+      <Route path="/" element={<Home />}></Route>
+    </Routes>
+  </main>
+)
 
 export default App;
