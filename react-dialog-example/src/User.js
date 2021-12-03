@@ -1,12 +1,19 @@
 import React from "react";
 
-const data = {name: 'Ivan', age: 42}
+const data = {name: 'Ivan', age: 42};
+const REACT_VERSION = React.version;
 
 const User = () => {
     return (
-        <pre>
-            {JSON.stringify(data, null, 2)}
-        </pre>
+        <>
+            <div>
+                {REACT_VERSION}
+            </div>
+            <pre>
+                {JSON.stringify(data, null, 2)}
+            </pre>
+        </>
+        
     )
 }
 
