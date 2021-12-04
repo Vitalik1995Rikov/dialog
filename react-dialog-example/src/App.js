@@ -14,6 +14,11 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
+const End = styled.div`
+  font-size: 24px;
+  color: #8857d8;
+`;
+
 const App = () => (
   <main>
     <Wrapper>
@@ -24,6 +29,7 @@ const App = () => (
           <Route path="/contact" element={<AllContacts />}></Route>
           <Route path="/" element={<Home />}></Route>
       </Routes>
+      <End>End</End>
     </Wrapper>
   </main>
 )
