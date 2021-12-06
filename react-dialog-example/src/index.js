@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 
+import './index.css';
 
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <div className="container">
       <Navigation/>
-      <Route exact path="/one">
-        <One/>
-      </Route>
-      <Route exact path="/two">
-        <Two/>
-      </Route>
-    </BrowserRouter>
+      <Routes>
+        <Route exact path="/one" element={<One/>}></Route>
+        <Route exact path="/two" element={<Two/>}></Route>
+      </Routes>
+    </div>
   )
 }
 
@@ -30,7 +29,7 @@ function Navigation() {
   return (
     <nav>
       <NavLink to="/one">One</NavLink>
-      <NavLink to="/one">One</NavLink>
+      <NavLink to="/two">Two</NavLink>
     </nav>
   )
 }
