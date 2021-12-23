@@ -4,3 +4,4 @@
 4. useRef
 
 5. React Router
+6. Глянуть Jest, React Testing

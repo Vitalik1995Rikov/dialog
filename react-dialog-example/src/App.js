@@ -1,9 +1,5 @@
-import React, { useReducer } from "react";
-
-
-function reducer(state, action) {
-    
-}
+import React from "react";
+import { render } from '@testing-library/react';
 
 function App() {
     
@@ -11,10 +7,14 @@ function App() {
     
     return (
       <div className="container">
-        
+        <h1>TEST</h1>
       </div>
     )
   }
+
+  test ('Simple test', () => {
+    render(<App/>)
+  })
 
 
 export default App;
