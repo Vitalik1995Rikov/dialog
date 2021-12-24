@@ -5,3 +5,6 @@
 
 5. React Router
 6. Глянуть Jest, React Testing
+7. Глянуть SOLID
+8. Глянуть Component Styled
+9. Глянуть Next.js
